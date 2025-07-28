@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Anna Mae Serdeña</title>
+  <title>Skills | Anna Mae Serdeña</title>
   <style>
     :root {
-      --barbie-pink: #ff0059;
+      --accent-pink: #ff927f;
       --baby-pink: #fed3cd;
-      --white: #ed517b;
-      --text-color: #000000;
+      --white: #ffffff;
+      --black: #000000;
       --card-bg: #ff9585;
-      --hover-bg: #e3b6fc;
-      --border-color: var(--barbie-pink);
     }
 
     * {
@@ -20,17 +18,16 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
     }
 
-    body {
-      background-color: var(--baby-pink);
-      color: var(--text-color);
-      padding-bottom: 3rem;
+    html, body {
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
     }
 
     nav {
-      background-color: var(--white);
+      background-color: var(--accent-pink);
       padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -38,7 +35,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
     }
 
     .nav-left img {
@@ -46,203 +42,292 @@
       width: auto;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-right a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: var(--text-color);
+      margin: 0 1rem;
+      color: var(--black);
       font-weight: 500;
-      font-size: 1.1rem;
+      font-size: 1rem;
+      text-decoration: none;
       transition: color 0.3s ease;
     }
 
     .nav-right a:hover {
-      color: #ffffff;
+      color: var(--white);
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--barbie-pink);
-      margin: 2rem 0 1rem;
-      animation: fadeDown 0.7s ease-in-out;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      color: var(--barbie-pink);
-      margin: 2rem 0 1rem;
-      text-align: center;
-      animation: fadeDown 1s ease-in-out;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      padding: 0 2rem;
-    }
-
-    .item {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
-      animation: zoomFade 1s ease forwards;
+    .hamburger {
+      display: none;
+      flex-direction: column;
       cursor: pointer;
     }
 
-    .item:hover {
-      transform: scale(1.05);
-      background-color: var(--hover-bg);
-    }
-
-    .item img {
-      width: 100%;
-      max-height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .item h2 {
-      font-size: 1.1rem;
-      color: var(--barbie-pink);
-      margin-bottom: 0.3rem;
-    }
-
-    .item p {
-      font-size: 0.95rem;
-      display: none;
-      transition: all 0.3s ease;
-    }
-
-    .item.active p {
-      display: block;
-      margin-top: 0.5rem;
-    }
-
-    @keyframes fadeDown {
-      from { transform: translateY(-30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes zoomFade {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--black);
+      margin: 4px 0;
+      border-radius: 2px;
     }
 
     @media (max-width: 768px) {
       .nav-right {
         display: none;
         flex-direction: column;
-        background: var(--white);
+        background: var(--accent-pink);
         position: absolute;
         top: 65px;
         right: 0;
         width: 100%;
         text-align: center;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .nav-right a {
-        padding: 1rem;
-        border-bottom: 1px solid var(--baby-pink);
       }
 
       .nav-right.active {
         display: flex;
       }
 
-      .hamburger {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+        width: 100%;
       }
 
-      .hamburger span {
-        height: 3px;
-        width: 25px;
-        background: var(--text-color);
-        margin: 4px 0;
-        border-radius: 2px;
+      .hamburger {
+        display: flex;
       }
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .technical-skills, .soft-skills {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .technical-skills h2, .soft-skills h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skills-list button {
+      background-color: var(--card-bg);
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      color: var(--black);
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    .skills-list button:hover {
+      background-color: var(--accent-pink);
+    }
+
+    .desc {
+      display: none;
+      font-size: 0.95rem;
+      color: var(--black);
+      margin: 0.3rem 0 0.8rem 1rem;
+      line-height: 1.5;
+    }
+
+    .bar-container {
+      margin-bottom: 1rem;
+    }
+
+    .bar-label {
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .bar {
+      width: 100%;
+      background-color: #f4ebea;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 1.2rem;
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: right;
+      padding-right: 0.5rem;
+      line-height: 1.2rem;
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-left">
-      <img id="logo" src="\amslogo.png" alt="Logo">
+      <img id="logo" src="images/amslogo.png" alt="Logo" />
     </div>
     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-right" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="experience.html">Experience</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <h1>✨ My Portfolio</h1>
+  <main>
+    <h1>Skills</h1>
 
-  <!-- Thesis Papers -->
-  <div class="section-title">📚 Thesis Papers</div>
-  <div class="grid">
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\thesis1.png" alt="Thesis 1">
-      <h2>Community-Based Learning Analysis</h2>
-      <p>An extensive study on educational impact within rural communities in Western Visayas.</p>
-    </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\thesis2.png" alt="Thesis 2">
-      <h2>Technological Approaches in Education</h2>
-      <p>Explores the use of virtual tools and digital materials in enhancing student performance.</p>
-    </div>
-  </div>
+    <div class="skills-container">
+      <!-- Technical Skills (Left Column) -->
+      <div class="technical-skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-list">
+          <button onclick="toggleDesc('desc1')">Canva & Thinkercad</button>
+          <p id="desc1" class="desc">I create engaging 2D and 3D designs for presentations, infographics, and creative projects.</p>
 
-  <!-- 3D Prototype Designs -->
-  <div class="section-title">🔧 3D Prototype Designs</div>
-  <div class="grid">
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\3d1.png" alt="3D 1">
-      <h2>Eco-Water Filtration System</h2>
-      <p>A sustainable filtration prototype designed for isolated barangays.</p>
-    </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\3d2.png" alt="3D 2">
-      <h2>Solar-Powered Charger</h2>
-      <p>Thinkercad build for a compact device made for mobile use.</p>
-    </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\3d3.png" alt="3D 3">
-      <h2>Automatic Irrigation Box</h2>
-      <p>Designed for agricultural use using affordable localized components.</p>
-    </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\3d4.png" alt="3D 4">
-      <h2>Portable Lamp Stand</h2>
-      <p>Created for night market vendors to boost visibility without overhead cost.</p>
-    </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\3d5.png" alt="3D 5">
-      <h2>Weather Monitoring Station</h2>
-      <p>Low-cost housing structure equipped with digital sensors.</p>
-    </div>
-  </div>
+          <button onclick="toggleDesc('desc2')">Story & Academic Writing</button>
+          <p id="desc2" class="desc">From heartfelt stories to formal essays and research—your ideas, professionally written.</p>
 
-  <!-- Pitching Competitions -->
-  <div class="section-title">🎤 Pitching Competitions</div>
-  <div class="grid">
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\pitch1.png" alt="Pitch 1">
-      <h2>TechPulse 2023</h2>
-      <p>Presented our solar-powered irrigation system—placed Top 6 nationwide.</p>
+          <button onclick="toggleDesc('desc3')">Pitch & Presentation Decks</button>
+          <p id="desc3" class="desc">Need a school or business pitch? I design well-researched, convincing slide decks tailored to your goal.</p>
+
+          <button onclick="toggleDesc('desc4')">Portfolio / Infographics</button>
+          <p id="desc4" class="desc">Visual summaries for research, branding, or school work—negotiable pricing for custom designs.</p>
+
+          <button onclick="toggleDesc('desc5')">Calligraphy & Posters</button>
+          <p id="desc5" class="desc">Custom-lettered slogans and visual assets, ideal for events or campaigns.</p>
+
+          <button onclick="toggleDesc('desc6')">Calendar Scheduling</button>
+          <p id="desc6" class="desc">I organize appointments, reminders, meetings, and collaborative events efficiently.</p>
+
+          <button onclick="toggleDesc('desc7')">Email Management</button>
+          <p id="desc7" class="desc">Inbox sorting, timely responses, archiving, tagging, and follow-ups.</p>
+
+          <button onclick="toggleDesc('desc8')">File Organization</button>
+          <p id="desc8" class="desc">I systematize files in folders or clouds for quick access and reduced clutter.</p>
+
+          <button onclick="toggleDesc('desc9')">Data Entry</button>
+          <p id="desc9" class="desc">Accurate and clean data input in spreadsheets, forms, or databases.</p>
+
+          <button onclick="toggleDesc('desc10')">Online Research</button>
+          <p id="desc10" class="desc">I find and summarize facts, contacts, statistics, and ideas based on your needs.</p>
+
+          <button onclick="toggleDesc('desc11')">Notes & Summaries</button>
+          <p id="desc11" class="desc">Meeting transcriptions, summarized content, and key point highlights.</p>
+
+          <button onclick="toggleDesc('desc12')">Client Follow-ups</button>
+          <p id="desc12" class="desc">Professional follow-ups, thank-you notes, and reminders using templates.</p>
+
+          <button onclick="toggleDesc('desc13')">Google & MS Office Proficiency</button>
+          <p id="desc13" class="desc">Spreadsheets, docs, forms, and templates—fast and efficient.</p>
+
+          <button onclick="toggleDesc('desc14')">Transcription & Letters</button>
+          <p id="desc14" class="desc">Accurate transcription for media and formal letters like recommendations.</p>
+        </div>
+      </div>
+
+      <!-- Soft Skills (Right Column) -->
+      <div class="soft-skills">
+        <h2>Soft Skills</h2>
+        <div class="bar-container">
+          <div class="bar-label">Attention to Detail</div>
+          <div class="bar"><div class="bar-fill" style="width: 95%">95%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Time Management</div>
+          <div class="bar"><div class="bar-fill" style="width: 85%">85%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Creative Thinking</div>
+          <div class="bar"><div class="bar-fill" style="width: 80%">80%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Written Communication</div>
+          <div class="bar"><div class="bar-fill" style="width: 80%">80%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Organization & Planning</div>
+          <div class="bar"><div class="bar-fill" style="width: 82%">82%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Adaptability</div>
+          <div class="bar"><div class="bar-fill" style="width: 78%">78%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Problem-Solving</div>
+          <div class="bar"><div class="bar-fill" style="width: 80%">80%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Professionalism</div>
+          <div class="bar"><div class="bar-fill" style="width: 99%">99%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Initiative & Self-Motivation</div>
+          <div class="bar"><div class="bar-fill" style="width: 88%">88%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Client-Focused Mindset</div>
+          <div class="bar"><div class="bar-fill" style="width: 96%">96%</div></div>
+        </div>
+        <div class="bar-container">
+          <div class="bar-label">Team Collaboration</div>
+          <div class="bar"><div class="bar-fill" style="width: 80%">80%</div></div>
+        </div>
+      </div>
     </div>
-    <div class="item" onclick="toggleDescription(this)">
-      <img src="\pitch2.png" alt="Pitch 2">
-      <
+  </main>
+
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    function toggleDesc(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
