@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Anna Mae Serdeña</title>
+  <style>
+    :root {
+      --accent-pink: #ff927f; /* updated pink */
+      --baby-pink: #fed3cd;
+      --white: #ffffff;
+      --black: #000000;
+      --color: var(--black);
+      --card-bg: #ff9585;
+      --border-color: var(--accent-pink);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: var(--accent-pink);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-right a {
+      margin: 0 1rem;
+      color: var(--black);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--black);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--accent-pink);
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+        width: 100%;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .project-text {
+      flex: 1 1 500px;
+    }
+
+    .project-image {
+      flex: 1 1 280px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .project-text h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-text a {
+      display: inline-block;
+      background-color: var(--accent-pink);
+      border: 1px solid var(--black);
+      color: var(--black);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .project-text a:hover {
+      background-color: var(--baby-pink);
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .project {
+        flex-direction: column;
+      }
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="images/amslogo.png" alt="Logo" />
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+      <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Projects</h1>
+
+    <!-- SunLoom RiceDry+ -->
+    <div class="project">
+      <div class="project-text">
+        <h2>SunLoom RiceDry+</h2>
+        <p>
+          A solar-powered, IoT-integrated rice dryer with real-time sensors and AI-based moisture prediction. 
+          Designed to automate and optimize rice drying using both solar and AC power, with a digital interface 
+          for environmental monitoring and control.
+        </p>
+      </div>
+      <div class="project-image">
+        <img src="images/sunloom.png" alt="SunLoom RiceDry+ Image" />
+      </div>
+    </div>
+
+    <!-- Anomaly Detection -->
+    <div class="project">
+      <div class="project-text">
+        <h2>Isolation Forest and PCA-Based Anomaly Detection</h2>
+        <p>
+          Developed an algorithm using Isolation Forest and Principal Component Analysis to detect and remove 
+          anomalies in rainfall and water level datasets, improving data reliability for hydrological systems.
+        </p>
+      </div>
+      <div class="project-image">
+        <img src="images/anomaly.png" alt="Hydrological Anomaly Detection Image" />
+      </div>
+    </div>
+
+    <!-- Prototype 3D -->
+    <div class="project">
+      <div class="project-text">
+        <h2>SunLoom RiceDry+ Project Design – 3D Design Using Thinkercad</h2>
+        <p>
+           Designed in Tinkercad, the SunLoom RiceDry+ is a functional 
+           3D prototype showcasing my skills in conceptual design and 
+           product modeling. The model features a cylindrical drying chamber 
+           with a mesh interior for grain distribution, a conical top for 
+           sunlight intake and husk containment, and a built-in exhaust with 
+           gears for airflow optimization. Wheels were added for mobility. 
+           This project highlights my ability to use digital tools for visual 
+           communication, technical support, and product 
+           presentation—key skills in a virtual assistant role.
+        </p>
+
+      </div>
+      <div class="project-image">
+        <img src="images/thinkercad.png" alt="Prototype Thinkercad Image" />
+      </div>
+     <div class="project-image">
+        <img src="images/thinkercad(1).png" alt="Prototype Thinkercad Image" />
+      </div>
+    </div>
+
+    <!--Chicken Inasal Vlog  -->
+    <div class="project">
+      <div class="project-text">
+        <h2>Chicken Inasal Vlog – Edited with CapCut & Customized Canva Template</h2>
+        <p>
+          This video project features a Chicken Inasal cooking vlog, 
+          fully edited using CapCut for clips, transitions, text overlays, 
+          and background music. The thumbnail and promotional graphics were 
+          created in Canva, where I customized templates to match the vlog’s 
+          branding. Despite using only free tools, I handled the entire 
+          post-production process—from trimming and sequencing to visual 
+          design—showcasing my ability to produce polished, engaging content 
+          efficiently. This reflects my adaptability and creativity in 
+          delivering high-quality media using accessible platforms.
+        </p>
+        <a href="https://drive.google.com/file/d/1GTza0Zl5MQtHgGY0JkxFEOM2kSnCT7Yw/view?usp=sharing" target="_blank">View in Google Drive</a>
+      </div>
+      <div class="project-image">
+        <img src="images/vlog.png" alt="Chicken Inasal Vlog Image" />
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
