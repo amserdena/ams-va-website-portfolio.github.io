@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Anna Mae Serdeña</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    :root {
+      --barbie-pink: #ff0059;
+      --baby-pink: #fed3cd;
+      --white: #ed517b;
+      --text-color: #000000;
+      --card-bg: #ff9585;
+      --hover-bg: #e3b6fc;
+      --border-color: var(--barbie-pink);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--baby-pink);
+      color: var(--text-color);
+      padding-bottom: 2rem;
+    }
+
+    nav {
+      background-color: var(--white);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .nav-right a:hover {
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.3rem;
+      color: var(--barbie-pink);
+      margin: 2rem 0 1rem;
+    }
+
+    .contact-form {
+      max-width: 480px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      animation: fadeUp 0.8s ease;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 2px solid var(--barbie-pink);
+      border-radius: 8px;
+      background-color: white;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--hover-bg);
+    }
+
+    button {
+      background: transparent;
+      border: 2px solid var(--barbie-pink);
+      color: var(--barbie-pink);
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--barbie-pink);
+      color: white;
+    }
+
+    #success-message {
+      text-align: center;
+      color: green;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--baby-pink);
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 25px;
+        background: var(--text-color);
+        margin: 4px 0;
+        border-radius: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="\amslogo.png" alt="Logo">
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html">Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <h1>💬 Let’s Talk</h1>
+
+  <div class="contact-form">
+    <form id="emailForm">
+      <label for="name">Your Name</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="message">Your Message</label>
+      <textarea name="message" id="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="success-message">✅ Message sent successfully!</div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+    document.getElementById("emailForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(function () {
+          document.getElementById("success-message").style.display = "block";
+          document.getElementById("emailForm").reset();
+        }, function (error) {
+          alert("Oops! Something went wrong.\n" + error.text);
+        });
+    });
+  </script>
+</body>
+</html>

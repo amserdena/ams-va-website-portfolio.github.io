@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Anna Mae Serdeña</title>
+  <style>
+    :root {
+      --barbie-pink: #ff0059;
+      --baby-pink: #fed3cd;
+      --white: #ed517b;
+      --text-color: #000000;
+      --card-bg: #ff9585;
+      --hover-bg: #e3b6fc;
+      --border-color: var(--barbie-pink);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--baby-pink);
+      color: var(--text-color);
+      overflow-x: hidden;
+      padding-bottom: 3rem;
+    }
+
+    nav {
+      background-color: var(--white);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: #ffffff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--text-color);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--barbie-pink);
+      margin: 2rem 0 1rem;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      width: 300px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+      animation: fadeUp 0.6s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background-color: var(--hover-bg);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      color: var(--barbie-pink);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeInDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--baby-pink);
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="\amslogo.png" alt="Logo">
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html">Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <h1>🌟 My Experience</h1>
+
+  <div class="container">
+    <div class="card">
+      <h2>Sales Representative</h2>
+      <p>Helped US-based customers at IXL Solutions place floral orders via phone. Handled preferences, custom details, and ensured accuracy and warmth in each transaction.</p>
+    </div>
+
+    <div class="card">
+      <h2>Customer Service Representative</h2>
+      <p>Resolved complaints and inquiries through email, live chat, and calls. Offered empathetic support, timely solutions, and positive communication across channels.</p>
+    </div>
+
+    <div class="card">
+      <h2>24-Hour Floral Support</h2>
+      <p>Worked with various US floral shops to manage orders, coordinate logistics, and assist clients in real-time—delivering seamless results under high-pressure timelines.</p>
+    </div>
+
+    <div class="card">
+      <h2>Private Tutor</h2>
+      <p>Provided 2 years of academic tutoring to elementary and SHS students in Hamtic, Antique. Focused on writing, research, reading comprehension, and educational guidance.</p>
+    </div>
+
+    <div class="card">
+      <h2>Pitching Competitions</h2>
+      <p>Competed and presented different proposals and innovative tech projects to various pitching competitions around the Philippines—showcasing creativity, public speaking, and strategic design.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

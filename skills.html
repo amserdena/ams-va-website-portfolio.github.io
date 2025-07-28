@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Anna Mae Serdeña</title>
+  <style>
+    :root {
+      --barbie-pink: #ff0059;
+      --baby-pink: #fed3cd;
+      --white: #ed517b;
+      --text-color: #000000;
+      --card-bg: #ff9585;
+      --hover-bg: #e3b6fc;
+      --border-color: var(--barbie-pink);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--baby-pink);
+      color: var(--text-color);
+      padding-bottom: 3rem;
+    }
+
+    nav {
+      background-color: var(--white);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--barbie-pink);
+      margin: 2rem 0 1rem;
+      animation: fadeDown 0.7s ease-in-out;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--barbie-pink);
+      margin: 2rem 0 1rem;
+      text-align: center;
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem;
+    }
+
+    .item {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      animation: zoomFade 1s ease forwards;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+      background-color: var(--hover-bg);
+    }
+
+    .item img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .item h2 {
+      font-size: 1.1rem;
+      color: var(--barbie-pink);
+      margin-bottom: 0.3rem;
+    }
+
+    .item p {
+      font-size: 0.95rem;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .item.active p {
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomFade {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--baby-pink);
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 25px;
+        background: var(--text-color);
+        margin: 4px 0;
+        border-radius: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="\amslogo.png" alt="Logo">
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html">Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <h1>✨ My Portfolio</h1>
+
+  <!-- Thesis Papers -->
+  <div class="section-title">📚 Thesis Papers</div>
+  <div class="grid">
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\thesis1.png" alt="Thesis 1">
+      <h2>Community-Based Learning Analysis</h2>
+      <p>An extensive study on educational impact within rural communities in Western Visayas.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\thesis2.png" alt="Thesis 2">
+      <h2>Technological Approaches in Education</h2>
+      <p>Explores the use of virtual tools and digital materials in enhancing student performance.</p>
+    </div>
+  </div>
+
+  <!-- 3D Prototype Designs -->
+  <div class="section-title">🔧 3D Prototype Designs</div>
+  <div class="grid">
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\3d1.png" alt="3D 1">
+      <h2>Eco-Water Filtration System</h2>
+      <p>A sustainable filtration prototype designed for isolated barangays.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\3d2.png" alt="3D 2">
+      <h2>Solar-Powered Charger</h2>
+      <p>Thinkercad build for a compact device made for mobile use.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\3d3.png" alt="3D 3">
+      <h2>Automatic Irrigation Box</h2>
+      <p>Designed for agricultural use using affordable localized components.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\3d4.png" alt="3D 4">
+      <h2>Portable Lamp Stand</h2>
+      <p>Created for night market vendors to boost visibility without overhead cost.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\3d5.png" alt="3D 5">
+      <h2>Weather Monitoring Station</h2>
+      <p>Low-cost housing structure equipped with digital sensors.</p>
+    </div>
+  </div>
+
+  <!-- Pitching Competitions -->
+  <div class="section-title">🎤 Pitching Competitions</div>
+  <div class="grid">
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\pitch1.png" alt="Pitch 1">
+      <h2>TechPulse 2023</h2>
+      <p>Presented our solar-powered irrigation system—placed Top 6 nationwide.</p>
+    </div>
+    <div class="item" onclick="toggleDescription(this)">
+      <img src="\pitch2.png" alt="Pitch 2">
+      <
