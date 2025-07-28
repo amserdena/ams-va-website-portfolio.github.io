@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Anna Mae Serdeña</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <style>
     :root {
-      --barbie-pink: #ff0059;
+      --accent-pink: #ff927f; /* updated pink */
       --baby-pink: #fed3cd;
-      --white: #ed517b;
-      --text-color: #000000;
+      --white: #ffffff;
+      --black: #000000;
+      --color: var(--black);
       --card-bg: #ff9585;
-      --hover-bg: #e3b6fc;
-      --border-color: var(--barbie-pink);
+      --border-color: var(--accent-pink);
     }
 
     * {
@@ -23,14 +22,16 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body {
-      background-color: var(--baby-pink);
-      color: var(--text-color);
-      padding-bottom: 2rem;
+    html, body {
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    nav {
-      background-color: var(--white);
+       nav {
+      background-color: var(--accent-pink);
       padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -38,125 +39,164 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
     }
 
     .nav-left img {
       height: 40px;
-      width: auto;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
     }
 
     .nav-right a {
-      margin: 0 1.2rem;
+      margin-left: 1rem;
+      color: var(--black);
       text-decoration: none;
-      color: var(--text-color);
       font-weight: 500;
-      font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
 
     .nav-right a:hover {
-      color: #ffffff;
+      color: var(--white);
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.3rem;
-      color: var(--barbie-pink);
-      margin: 2rem 0 1rem;
-    }
-
-    .contact-form {
-      max-width: 480px;
-      margin: 0 auto;
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-      animation: fadeUp 0.8s ease;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      border: 2px solid var(--barbie-pink);
-      border-radius: 8px;
-      background-color: white;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--hover-bg);
-    }
-
-    button {
-      background: transparent;
-      border: 2px solid var(--barbie-pink);
-      color: var(--barbie-pink);
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background-color: var(--barbie-pink);
-      color: white;
-    }
-
-    #success-message {
-      text-align: center;
-      color: green;
-      margin-top: 1rem;
+    .hamburger {
       display: none;
+      flex-direction: column;
+      cursor: pointer;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--black);
+      margin: 4px 0;
+      border-radius: 2px;
     }
 
     @media (max-width: 768px) {
       .nav-right {
         display: none;
         flex-direction: column;
-        background: var(--white);
+        background: var(--accent-pink);
         position: absolute;
         top: 65px;
         right: 0;
         width: 100%;
         text-align: center;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .nav-right a {
-        padding: 1rem;
-        border-bottom: 1px solid var(--baby-pink);
       }
 
       .nav-right.active {
         display: flex;
       }
 
-      .hamburger {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+        width: 100%;
       }
 
-      .hamburger span {
-        height: 3px;
-        width: 25px;
-        background: var(--text-color);
-        margin: 4px 0;
-        border-radius: 2px;
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-section {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-top {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo-top img {
+      height: 140px;
+      max-width: 100%;
+    }
+
+    .contact-section h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid var(--black);
+      border-radius: 6px;
+      background-color: var(--white);
+      color: var(--black);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: var(--white);
+      color: var(--black);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--white);
+      color: var(--black);
+      border: 1px solid var(--white);
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .logo-top img {
+        height: 100px;
+      }
+
+      .contact-section h1 {
+        font-size: 1.5rem;
+      }
+
+      button {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -164,56 +204,43 @@
 <body>
   <nav>
     <div class="nav-left">
-      <img id="logo" src="\amslogo.png" alt="Logo">
+      <img id="logo" src="images/amslogo.png" alt="Logo" />
     </div>
-    <div class="hamburger" onclick="toggleNav()">
+     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </div>
-    <div class="nav-right" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="experience.html">Experience</a>
-      <a href="portfolio.html">Portfolio</a>
+    <div class="nav-right"  id="navLinks">
+      <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <h1>💬 Let’s Talk</h1>
-
-  <div class="contact-form">
-    <form id="emailForm">
-      <label for="name">Your Name</label>
-      <input type="text" name="name" id="name" required />
-
-      <label for="email">Your Email</label>
-      <input type="email" name="email" id="email" required />
-
-      <label for="message">Your Message</label>
-      <textarea name="message" id="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-    <div id="success-message">✅ Message sent successfully!</div>
-  </div>
-
-  <script>
+  <main>
+    <div class="contact-section">
+      <div class="logo-top">
+        <img src="images/amslogo.png" alt="Top Logo" />
+      </div>
+      <h1>Contact Me</h1>
+      <form action="mailto:annamaeserdena16@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required />
+        <input type="email" name="Email" placeholder="Your Email" required />
+        <textarea name="Message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+<script>
     function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById("navLinks").classList.toggle("active");
     }
-
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-
-    document.getElementById("emailForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-        .then(function () {
-          document.getElementById("success-message").style.display = "block";
-          document.getElementById("emailForm").reset();
-        }, function (error) {
-          alert("Oops! Something went wrong.\n" + error.text);
-        });
-    });
   </script>
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
 </body>
 </html>
