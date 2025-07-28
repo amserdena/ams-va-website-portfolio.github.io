@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anna Mae Serdeña | Virtual Assistant & Project Manager</title>
+  <title>About Me | Anna Mae Serdeña</title>
   <style>
     :root {
-      --barbie-pink: #ff0059;
+       --accent-pink: #ff927f; /* updated pink */
       --baby-pink: #fed3cd;
-      --white: #ed517b;
-      --text-color: #000000;
+      --white: #ffffff;
+      --black: #000000;
+      --color: var(--black);
       --card-bg: #ff9585;
-      --border-color: var(--barbie-pink);
+      --border-color: var(--accent-pink);
     }
 
     * {
@@ -21,16 +22,16 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: var(--baby-pink);
-      color: var(--text-color);
+    body {
+      background-color: var(--white);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     nav {
-      background-color: var(--white);
+      background-color: var(--accent-pink);
       padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -38,7 +39,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
     }
 
     .nav-left img {
@@ -46,16 +46,22 @@
       width: auto;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-right a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: var(--text-color);
+      margin: 0 1rem;
+      color: var(--black);
       font-weight: 500;
-      font-size: 1.1rem;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     .nav-right a:hover {
-      color: #ffffff;
+      color: var(--white);
     }
 
     .hamburger {
@@ -67,7 +73,7 @@
     .hamburger span {
       height: 3px;
       width: 25px;
-      background: var(--text-color);
+      background: var(--black);
       margin: 4px 0;
       border-radius: 2px;
     }
@@ -76,202 +82,242 @@
       .nav-right {
         display: none;
         flex-direction: column;
-        background: var(--white);
+        background: var(--accent-pink);
         position: absolute;
         top: 65px;
         right: 0;
         width: 100%;
         text-align: center;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .nav-right a {
-        padding: 1rem;
-        border-bottom: 1px solid var(--baby-pink);
       }
 
       .nav-right.active {
         display: flex;
       }
 
+     .nav-right a {
+    padding: 1rem;
+    border-bottom: 1px solid var(--black);
+    width: 100%; /* 🔧 makes dividers stretch edge to edge */
+      }
+
       .hamburger {
         display: flex;
       }
-
-      .intro {
-        padding: 1rem;
-        font-size: 0.95rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      #typing-container {
-        font-size: 1.2rem;
-      }
-
-      .btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-      }
     }
 
-    header {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+    main {
+      flex: 1;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
+      padding: 6rem 1rem 2rem;
     }
 
-    header img {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      max-width: 1000px;
       width: 100%;
-      height: 100%;
-      max-width: 100%;
-      object-fit: cover;
-      z-index: 0;
+      align-items: flex-start;
     }
 
-    .intro {
+    .photo-wrapper {
       position: relative;
-      z-index: 1;
-      padding: 2rem;
+      width: 280px;
+      flex-shrink: 0;
+      padding-top: 40px;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: auto;
       border-radius: 12px;
-      max-width: 90%;
-      margin-left: 5%;
-      color: var(--text-color);
+      border: 2px solid var(--lightgray);
+      display: block;
     }
 
-    #typing-container {
-      font-size: 1.5rem;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    #static-text {
-      margin-right: 8px;
-    }
-
-    #animated-role {
-      border-right: 2px solid var(--text-color);
-      animation: blink 0.7s steps(1) infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
+    .about-text {
+      max-width: 600px;
     }
 
     h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      color: var(--barbie-pink);
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
     .btn {
       display: inline-block;
-      background: transparent;
-      border: 2px solid var(--barbie-pink);
-      color: var(--barbie-pink);
+      background-color: var(--accent-pink);
+      color: var(--white);
+      border: none;
       padding: 0.6rem 1.2rem;
       margin: 0.5rem 0.5rem 0 0;
       border-radius: 25px;
       text-decoration: none;
-      transition: 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: var(--barbie-pink);
-      color: #ffffff;
+      background-color: var(--white);
+      color: var(--black);
     }
 
-    .intro p {
+    p {
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 0.8rem;
+      color: var(--black);
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      animation: popRotate 6s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .sticker img {
+      width: 100%;
+      height: auto;
+    }
+
+    .sticker1 {
+      top: 40px;
+      left: -30px;
+      animation-delay: 0s;
+    }
+
+    .sticker2 {
+      bottom: -30px;
+      right: -30px;
+      animation-delay: 1s;
+    }
+
+    .sticker3 {
+      top: 50%;
+      left: -45px;
+      transform: translateY(-50%);
+      animation-delay: 2s;
+    }
+
+    @keyframes popRotate {
+      0%, 100% {
+        transform: scale(1) rotate(0deg);
+      }
+      25% {
+        transform: scale(1.2) rotate(10deg);
+      }
+      50% {
+        transform: scale(1) rotate(0deg);
+      }
+      75% {
+        transform: scale(1.2) rotate(-10deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-text {
+        max-width: 100%;
+      }
+
+      .photo-wrapper {
+        width: 220px;
+      }
+
+      .sticker {
+        width: 45px;
+        height: 45px;
+      }
+
+      .sticker1 {
+        top: 30px;
+        left: -25px;
+      }
+
+      .sticker2 {
+        bottom: -25px;
+        right: -25px;
+      }
+
+      .sticker3 {
+        left: -35px;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-left">
-      <img id="logo" src="\amslogo.png" alt="Logo">
+      <img id="logo" src="/images/amslogo.png" alt="Logo">
     </div>
     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-right" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="experience.html">Experience</a>
-      <a href="portfolio.html">Portfolio</a>
+       <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href=certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <header>
-    <img src="\amsss.png" alt="Anna Mae Image Preview" />
-    <div class="intro">
-      <div id="typing-container">
-        <span id="static-text">Hi, I'm</span>
-        <span id="animated-role"></span>
+  <main>
+    <div class="container">
+      <div class="photo-wrapper">
+        <div class="sticker sticker1">
+          <img src="/images/amslogo.png" alt="Sticker 1">
+        </div>
+        <div class="sticker sticker2">
+          <img src="/images/amslogo.png" alt="Sticker 2">
+        </div>
+        <div class="sticker sticker3">
+          <img src="/images/amslogo.png" alt="Sticker 3">
+        </div>
+
+        <div class="profile-photo">
+          <img src="/images/amsprofile.png" alt="Anna Mae Serdeña Portrait" />
+        </div>
       </div>
-      <h1>Anna Mae Serdeña</h1>
-      <p>
-        Empowering individuals and teams through organization, research, and smart digital solutions.
-        I bring projects to life through agile task handling, visual editing, and professional documentation.
-      </p>
-      <a href="ANNAMAE_SERDEÑA_RESUME.pdf" download class="btn">Download Resume</a>
-      <a href="mailto:annamaeserdena16@gmail.com" class="btn">Contact</a>
+
+      <div class="about-text">
+        <h1>About Me</h1>
+        <p>
+         I am a Computer Engineering graduate and a Civil Service Professional with a strong background in technical design, project coordination, and digital organization. 
+         I served as Project Manager for a start-up team focused on technology-driven solutions, where I led planning, coordination, and execution efforts. 
+         Skilled in 2D and 3D design using Canva and Tinkercad, I create impactful presentations, pitch decks, infographics, and written content for academic, business, 
+         and creative use. I am also knowledgeable in calendar scheduling, email and file management, data entry, transcription, and online research. With proficiency in 
+         Google Workspace and Microsoft Office tools, I deliver accurate, well-structured, and client-focused outputs—consistently combining technical skill with a strong sense of 
+         organization, professionalism, and adaptability.
+        </p>
+      </div>
     </div>
-  </header>
+  </main>
+
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
 
   <script>
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('active');
     }
-
-    const roles = ["Virtual Assistant", "Project Manager"];
-    const roleElement = document.getElementById("animated-role");
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeRole() {
-      const current = roles[roleIndex];
-      if (isDeleting) {
-        charIndex--;
-        roleElement.textContent = current.substring(0, charIndex);
-      } else {
-        charIndex++;
-        roleElement.textContent = current.substring(0, charIndex);
-      }
-
-      const typingSpeed = isDeleting ? 30 : 60;
-
-      if (!isDeleting && charIndex === current.length) {
-        setTimeout(() => isDeleting = true, 800);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-
-      setTimeout(typeRole, typingSpeed);
-    }
-
-    typeRole();
   </script>
 </body>
 </html>
