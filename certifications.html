@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Anna Mae Serdeña</title>
+  <style>
+    :root {
+      --accent-pink: #ff927f; /* updated pink */
+      --baby-pink: #fed3cd;
+      --white: #ffffff;
+      --black: #000000;
+      --color: var(--black);
+      --card-bg: #ff9585;
+      --border-color: var(--accent-pink);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: var(--accent-pink);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-right a {
+      margin: 0 1rem;
+      color: var(--black);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: var(--white);
+    }
+
+    .nav-right a.active {
+      border-bottom: 2px solid var(--black);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--black);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--accent-pink);
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+        width: 100%;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .certification {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .cert-text {
+      flex: 1 1 500px;
+    }
+
+    .cert-image {
+      flex: 1 1 280px;
+    }
+
+    .cert-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .cert-text h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-text a {
+      display: inline-block;
+      background-color: var(--accent-pink);
+      border: 1px solid var(--black);
+      color: var(--black);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .cert-text a:hover {
+      background-color: var(--baby-pink);
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .certification {
+        flex-direction: column;
+      }
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="images/amslogo.png" alt="Logo" />
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+       <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Certifications & Eligibility</h1>
+
+    <div class="certification">
+      <div class="cert-text">
+        <h2>Civil Service Examination – Professional Level</h2>
+        <p>Passed the national eligibility examination qualifying for government professional positions in the Philippines.</p>
+        <a href="https://www.csc.gov.ph/" target="_blank">Visit CSC Website</a>
+      </div>
+      <div class="cert-image">
+        <img src="images/csc.png" alt="Civil Service Certificate" />
+      </div>
+    </div>
+
+    <div class="certification">
+      <div class="cert-text">
+        <h2>Test of Practical Competency in ICT (TOPCIT) – Level 2</h2>
+        <p>Certified in ICT competency, covering software development, database management, and IT-related problem solving.</p>
+        <a href="https://www.topcit.or.kr/home.do" target="_blank">Visit TOPCIT Korea</a>
+      </div>
+      <div class="cert-image">
+        <img src="images/topcit.png" alt="TOPCIT Certificate" />
+      </div>
+    </div>
+
+    <div class="certification">
+      <div class="cert-text">
+        <h2>Computer Security Incident Handling (CSIH) – NC I</h2>
+        <p>Certified for entry-level skills in responding to and managing basic computer security incidents.</p>
+        <a href="https://www.tesda.gov.ph/" target="_blank">Visit TESDA Website</a>
+      </div>
+      <div class="cert-image">
+        <img src="images/csih.png" alt="CSIH Certificate" />
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
