@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience | Anna Mae Serdeña</title>
+  <title>Competitions | Anna Mae Serdeña</title>
   <style>
     :root {
-      --barbie-pink: #ff0059;
+    --accent-pink: #ff927f; /* updated pink */
       --baby-pink: #fed3cd;
-      --white: #ed517b;
-      --text-color: #000000;
+      --white: #ffffff;
+      --black: #000000;
+      --color: var(--black);
       --card-bg: #ff9585;
-      --hover-bg: #e3b6fc;
-      --border-color: var(--barbie-pink);
+      --border-color: var(--accent-pink);
     }
 
     * {
@@ -20,18 +20,18 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
     }
 
-    body {
-      background-color: var(--baby-pink);
-      color: var(--text-color);
-      overflow-x: hidden;
-      padding-bottom: 3rem;
+    html, body {
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
-      background-color: var(--white);
+      background-color: var(--accent-pink);
       padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -39,25 +39,27 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
     }
 
     .nav-left img {
       height: 40px;
-      width: auto;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
     }
 
     .nav-right a {
-      margin: 0 1.2rem;
+      margin-left: 1rem;
+      color: var(--black);
       text-decoration: none;
-      color: var(--text-color);
       font-weight: 500;
-      font-size: 1.1rem;
       transition: color 0.3s ease;
     }
 
     .nav-right a:hover {
-      color: #ffffff;
+      color: var(--white);
     }
 
     .hamburger {
@@ -69,97 +71,138 @@
     .hamburger span {
       height: 3px;
       width: 25px;
-      background: var(--text-color);
+      background: var(--black);
       margin: 4px 0;
       border-radius: 2px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: bold;
-      color: var(--barbie-pink);
-      margin: 2rem 0 1rem;
-      animation: fadeInDown 0.8s ease;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0 2rem;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 16px;
-      width: 300px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
-      animation: fadeUp 0.6s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      background-color: var(--hover-bg);
-    }
-
-    .card h2 {
-      font-size: 1.4rem;
-      color: var(--barbie-pink);
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    @keyframes fadeInDown {
-      from { transform: translateY(-30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
       .nav-right {
         display: none;
         flex-direction: column;
-        background: var(--white);
+        background: var(--accent-pink);
         position: absolute;
         top: 65px;
         right: 0;
         width: 100%;
         text-align: center;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .nav-right a {
-        padding: 1rem;
-        border-bottom: 1px solid var(--baby-pink);
       }
 
       .nav-right.active {
         display: flex;
       }
 
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+        width: 100%;
+      }
+
       .hamburger {
         display: flex;
       }
+    }
 
-      h1 {
-        font-size: 2rem;
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .competition {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .comp-logo {
+      flex: 1 1 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .comp-logo img {
+      width: 90px;
+      height: auto;
+    }
+
+    .comp-text {
+      flex: 1 1 400px;
+    }
+
+    .comp-text h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .comp-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .comp-text a {
+      display: inline-block;
+      background-color: var(--accent-pink);
+      border: 1px solid var(--black);
+      color: var(--black);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .comp-text a:hover {
+      background-color: var(--baby-pink);
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
+
+    .comp-images {
+      flex: 1 1 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .comp-images img {
+      width: 100%;
+      border-radius: 8px;
+      border: none;
+    }
+
+    footer {
+      background-color: var(--accent-pink);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .competition {
+        flex-direction: column;
       }
 
-      .card {
-        width: 90%;
+      .comp-logo {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      .comp-logo img {
+        width: 70px;
       }
     }
   </style>
@@ -167,53 +210,152 @@
 <body>
   <nav>
     <div class="nav-left">
-      <img id="logo" src="\amslogo.png" alt="Logo">
+      <img src="/images/amslogo.png" alt="Logo" />
     </div>
     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-right" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="experience.html">Experience</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competitions.html">Competitions</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <h1>🌟 My Experience</h1>
+  <main>
+    <h1>Competitions</h1>
 
-  <div class="container">
-    <div class="card">
-      <h2>Sales Representative</h2>
-      <p>Helped US-based customers at IXL Solutions place floral orders via phone. Handled preferences, custom details, and ensured accuracy and warmth in each transaction.</p>
+    <!-- Region 6 packetHACKS -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/packetworx.png" alt="Packetworx">
+        <img src="images/dict.png" alt="DICT">
+      </div>
+      <div class="comp-text">
+        <h2>Region 6 packetHACKS – 1st Place</h2>
+        <p>Bacolod City</p>
+        <p>Led IoT-based prototype; outperformed 27 teams.</p>
+        <a href="https://packetworx.com/" target="_blank">Packetworx Website</a>
+        <a href="https://dict.gov.ph/" target="_blank">DICT Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/bacolod.png" alt="Certificate">
+        <img src="images/bacolod(1).png" alt="Event Photo">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Customer Service Representative</h2>
-      <p>Resolved complaints and inquiries through email, live chat, and calls. Offered empathetic support, timely solutions, and positive communication across channels.</p>
+    <!-- National packetHACKS -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/packetworx.png" alt="Packetworx">
+        <img src="images/dict.png" alt="DICT">
+      </div>
+      <div class="comp-text">
+        <h2>National packetHACKS – 3rd Place</h2>
+        <p>Pasig City</p>
+        <p>Top 3 of 14 national finalists.</p>
+        <a href="https://packetworx.com/" target="_blank">Packetworx Website</a>
+        <a href="https://dict.gov.ph/" target="_blank">DICT Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/pasig.png" alt="Certificate">
+        <img src="images/pasig(1).png" alt="Event Photo">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>24-Hour Floral Support</h2>
-      <p>Worked with various US floral shops to manage orders, coordinate logistics, and assist clients in real-time—delivering seamless results under high-pressure timelines.</p>
+    <!-- Western Visayas AI Hackathon -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/dost.png" alt="DOST">
+      </div>
+      <div class="comp-text">
+        <h2>Western Visayas AI Hackathon – 3rd Place</h2>
+        <p>Antique</p>
+        <p>Created AI-based solution with no prior AI experience.</p>
+        <a href="https://www.dost.gov.ph/" target="_blank">DOST Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/ant.png" alt="Certificate">
+        <img src="images/ant(1).png" alt="Event Photo">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Private Tutor</h2>
-      <p>Provided 2 years of academic tutoring to elementary and SHS students in Hamtic, Antique. Focused on writing, research, reading comprehension, and educational guidance.</p>
+    <!-- Region 6 Moonshot TNK -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/dti.png" alt="DTI">
+      </div>
+      <div class="comp-text">
+        <h2>Region 6 Moonshot TNK – Top 10</h2>
+        <p>Iloilo City</p>
+        <p>Chosen from 47 regional startups.</p>
+        <a href="https://www.dti.gov.ph/" target="_blank">DTI Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/ilo.png" alt="Certificate">
+        <img src="images/ilo(1).png" alt="Event Photo">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Pitching Competitions</h2>
-      <p>Competed and presented different proposals and innovative tech projects to various pitching competitions around the Philippines—showcasing creativity, public speaking, and strategic design.</p>
+    <!-- Region 6 Philippine Start-up Challenge 9 -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/dict.png" alt="DICT">
+      </div>
+      <div class="comp-text">
+        <h2>Region 6 Philippine Start-up Challenge 9 – Top 10</h2>
+        <p>Iloilo City</p>
+        <a href="https://dict.gov.ph/" target="_blank">DICT Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/iloilo.png" alt="Certificate">
+        <img src="images/iloilo(1).png" alt="Event Photo">
+      </div>
     </div>
-  </div>
 
-  <script>
+    <!-- Socially Relevant Technologies -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/ipophl.png" alt="DICT">
+      </div>
+      <div class="comp-text">
+        <h2>Socially Relevant Technologies – Top 12</h2>
+        <p>Taguig City</p>
+        <p>Two entries addressing agri-tech issues.</p>
+        <a href="https://ipophil.gov.ph/" target="_blank">IPOPHL Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/taguig.png" alt="Certificate">
+        <img src="images/taguig(1).png" alt="Event Photo">
+      </div>
+    <!-- University of Antique Product and Innovation -->
+    <div class="competition">
+      <div class="comp-logo">
+        <img src="images/ua.png" alt="UA">
+      </div>
+      <div class="comp-text">
+        <h2>University of Antique Product and Innovation – 1st Place</h2>
+        <p>Antique</p>
+        <p>Bested 8 departments..</p>
+        <a href="https://www.antiquespride.edu.ph/" target="_blank">UA Website</a>
+      </div>
+      <div class="comp-images">
+        <img src="images/antique.png" alt="Certificate">
+        <img src="images/antique(1).png" alt="Event Photo">
+      </div>
+    </div>
+     </main>
+<script>
     function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById("navLinks").classList.toggle("active");
     }
   </script>
+  <footer>
+    &copy; 2025 Anna Mae Serdeña. All rights reserved.
+  </footer>
 </body>
 </html>
